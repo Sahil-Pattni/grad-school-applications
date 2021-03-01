@@ -1,0 +1,54 @@
+%% ----- SUPERVISOR ----- %
+%\newcommand{\supervisor}{\textbf{Professor Neamat El Gayar}}
+% 
+%% ---- DISSERTATION TITLE ---- %
+%\newcommand{\project}{Multi-Element Association Rule Derivation from Minimum Spanning Trees}
+%
+%% ----- HERIOT WATT UNVIERSITY (DUBAI?) ---- %
+%\newcommand{\hw}{Heriot-Watt University}
+
+\documentclass[a4paper,11pt]{article}
+
+% Padding Requirements
+\usepackage[a4paper, margin=1in]{geometry}
+% Used for images
+\usepackage{graphicx}
+\usepackage{float}
+\graphicspath{{/Users/sloth_mini/Documents/4.1/dissertation/images/}}
+% Used for bibliography
+\usepackage[style=ieee, sorting=none, backend=biber]{biblatex}
+\renewcommand{\bibfont}{\small}
+
+% References file
+\addbibresource{references.bib}
+
+
+% ---- UNIVERSITY NAME ---- %
+%\newcommand{\uni}{the University of Victoria}
+%\newcommand{\city}{Victoria}
+%\newcommand{\program}{Master of Science in Computer Science}
+
+
+\begin{document}
+\title{Statement of Purpose}
+
+\author{Sahil Pattni\\(sp72@hw.ac.uk)}
+\date{}
+\maketitle
+
+
+% Introduction and purpose of letter.
+Few topics have fostered such a sense of curiosity, wonder and interest in me as the broad field of computer science has. The process of seemingly arbitrary words on a screen translating to logic amazed me when I first discovered it, and it still does as I conclude my undergraduate degree. It is for this reason that I wish to pursue a \program\ at \uni. My interests include machine learning, data structures and natural language processing. After obtaining my Masters, I wish to further pursue a career in data science and/or software engineering.
+
+
+Under the guidance of \supervisor, I am working on my undergraduate dissertation, where I aim to derive multi-element association rules from a transactional database, as a complement to the established Apriori algorithm \cite{apriori}. My goal is to do by representing the the data as an undirected graph where the products are nodes and the edges are the association scores between them. From this graph, I would extract a minimum spanning tree (MST) such that only the strongest associations remain, and identify distinct segments from the MST using Markov Clustering. From each cluster, I then plan to derive association rules from the connections within them. I am building on the work of \textbf{Marucio A. Valle et al} \cite{mst_paper}, whose paper proposed the initial framework for single element association rule derivation from MSTs. This dissertation has allowed me to explore my interest in data structures and graph theory, presenting its fair share of challenges along the way, all of which I enjoyed solving. For example, transforming the database of 24 million entries to my requirements had a complexity of $O(n^2)$, making it computationally infeasible if carried out in a linear fashion. I was able to use the knowledge I gained from my undergraduate courses such as Operating Systems and Concurrency to develop an efficient multi-core parallelized solution.
+
+% Undergraduate career.
+In the four years it took me to achieve a BSc. in Computer Science with Honors at \hw, I have acquired an understanding of this scientific discipline that has only fueled my curiosity and interest further. I have worked on several interesting projects during these four years, but one particular project worth mentioning is the coursework for my Biologically Inspired Computation course. For this project, I wrote a Particle-Swarm optimized neural network completely from scratch without the support of libraries such as Tensorflow and Scikit-Learn, resulting in me understanding how neural networks work at a fundamental level, and in doing so I realized the power to solve arbitrarily complex problems that machine learning offers. Another project worthy of mention is the coursework for my Applied Text Analytics course, where I was tasked with collecting Twitter data (tweets) and classifying their sentiment.  I decided to use an Long Short Term Memory Recurrent Neural Network to process the text as a sequence and classify the tweets on a five point sentiment scale.  For our Software Engineering and Professional Development course, I led a team of five people to develop a smart home automation system for the course's year long group project, which required us to develop a product in an emulated industrial environment,  performing tasks such as identifying and determining the requirements; producing a comprehensive risk analysis; forecasting operational costs and budgets; conducting usability studies with prototypes, and finally delivering the finished product.
+
+Outside the academic environment, my passion for computer science has driven me to work on several projects on the side; most recently, I worked with two colleagues to develop a cross-platform mobile application for a hackathon that allows non-profits to crowd-source their funding. I am also currently developing an automated cryptocurrency trading system that uses machine learning\footnote{I am still comparing different classifiers and architectures to determine which one would best be suited for this task.} to determine optimal market conditions in which to execute trades.  Laying the groundwork for this project has also fostered an interest in stochastic systems in general, and how machine learning holds the potential to approximate them. I have also leveraged the knowledge I've acquired from my undergraduate degree in the family manufacturing business, using VBA and Python to automate and streamline most of the administrative work.
+
+At \uni, due to the plethora of available opportunities, I believe that I will be able to gain higher exposure and with it, a deeper understanding of the various problems in the field. Being part of such an elite and diverse group would foster intellectual growth and enable me to work to my potential. It would be a privilege for me to spend a fruitful and rewarding time studying at the \city\ campus.
+
+\printbibliography
+\end{document}
