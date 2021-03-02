@@ -10,7 +10,6 @@ universities = []
 
 # Default LaTeX variables.
 variables = {
-    '\ ': ' ',
     '\\hw': 'Heriot-Watt University',
     '\\supervisor': '\\textbf{Professor Neamat El Gayar}',
     '\\project': 'Multi-Element Association Rule Derivation from Minimum Spanning Trees'
@@ -25,7 +24,6 @@ def read_universities():
         for i, row in enumerate(reader):
             if i == 0:
                 pass
-            print(row)
             universities.append(row)
 
  
@@ -34,13 +32,14 @@ def init():
     # Read in document
     with open(SOP_FILEPATH, 'r') as f:
         sop = f.read()
+        sop = sop.replace('\\ ', ' ')
 
     # Read in docuemnts
     with open(REFERENCES_FILEPATH, 'r') as f:
         references = f.read()
 
     # Write out references
-    with open(f'{OUTPUT_PATH}references.bib', 'w+') as f:
+    with open(f'{OUTPUT_PATH}/references.bib', 'w+') as f:
         f.write(references)
 
     # Read in universities
@@ -87,7 +86,9 @@ def make_pdf(university_details):
     # Move pdf to compile folder
     os.system(f'mv {university}.pdf compiled/')
     # Clear build folder
-    os.system('rm *')
+    build_file_extensions = ['aux', 'bbl', 'bcf', 'blg', 'log', 'run.xml', 'synctex.gz']
+    for extension in build_file_extensions:
+        os.system(f'rm *.{extension}')
 
 
 
