@@ -12,7 +12,7 @@ universities = []
 variables = {
     '\ ': ' ',
     '\\hw': 'Heriot-Watt University',
-    '\\supervisor': 'Professor Neamat El Gayar',
+    '\\supervisor': '\\textbf{Professor Neamat El Gayar}',
     '\\project': 'Multi-Element Association Rule Derivation from Minimum Spanning Trees'
 }
 
@@ -51,20 +51,22 @@ def init():
 
 
 def make_pdf(university_details):
+    
     # Merge two dictionaries in the local scope
     commands = variables.copy()
     commands.update(university_details)
+
+    # Extract university name
+    university = commands['\\uni']
+    # Add 'the' prefix if first word is University
+    if university.lower().split(' ')[0] == 'university':
+        commands['\\uni'] = f'the {university}'
 
     # LaTeX commands string to prefix
     latex_commands = ''
     for key, value in commands.items():
         latex_commands += '\\newcommand{'+key+'}{'+value+'}\n'
     
-    # Extract university name
-    university = commands['\\uni']
-    # Add 'the' prefix if first word is University
-    if university.lower().split(' ')== 'university':
-        commands['\\uni'] = f'the {university}'
     
     university = university.replace(' ', '_')
     # Write out .tex file
