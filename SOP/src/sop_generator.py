@@ -32,7 +32,7 @@ def init():
     # Read in document
     with open(SOP_FILEPATH, 'r') as f:
         sop = f.read()
-        sop = sop.replace('\\ ', ' ')
+        # sop = sop.replace('\\ ', ' ')
 
     # Read in docuemnts
     with open(REFERENCES_FILEPATH, 'r') as f:
