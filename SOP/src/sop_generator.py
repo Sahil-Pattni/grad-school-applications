@@ -25,8 +25,8 @@ def read_universities():
         for i, row in enumerate(reader):
             if i == 0:
                 pass
+            print(row)
             universities.append(row)
-
 
  
 def init():
@@ -77,15 +77,23 @@ def make_pdf(university_details):
     biber = f'biber {university}'
     compilation = [pdflatex, biber, pdflatex, pdflatex]
     print(f'Currently in {os.getcwd()}')
+
     for cmd in compilation:
         print(f'Running `{cmd}`')
         os.system(cmd)
+    
+    # Move pdf to compile folder
+    os.system(f'mv {university}.pdf compiled/')
+    # Clear build folder
+    os.system('rm *')
+
 
 
 if __name__ == '__main__':
     init()
     for uni in universities:
         make_pdf(uni)
+
     
 
 
